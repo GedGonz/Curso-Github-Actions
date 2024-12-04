@@ -1,23 +1,23 @@
 name: HolaMundo
 
 on:
-  push:
+  push:                             #Evento que la genera
     branches:
-      - aprendiendo-github-actions
+      - aprendiendo-github-actions  #Rama donde se espera el evento
 
-jobs:
+jobs:                               #Definición del job
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest          #Maquina en la que correrá
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4   #Action que descarga el código fuente
       
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v4 #Action que instala java
         with:
           distribution: 'zulu'
           java-version: '21'
 
-      - name: Compile Java code
+      - name: Compile Java code     #Step personalizado para compilar el codigo de java
         run: javac HelloWorldApp.java
 
-      - name: Run Java
+      - name: Run Java              #Step personalizado para corren el compilado de java
         run: java HelloWorldApp.java
