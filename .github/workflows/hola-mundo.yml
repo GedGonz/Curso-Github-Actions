@@ -16,6 +16,7 @@ jobs:                               #Definición del job
 
   run-java:                         #Nombre del job #2
     runs-on: ubuntu-latest          #Maquina en la que correrá
+    needs: setup-java               # Asegura que `setup-java` se ejecute antes
     steps:                          #Definición de los steps del job #2
       - uses: actions/checkout@v4   #Action que descarga el código fuente
       
