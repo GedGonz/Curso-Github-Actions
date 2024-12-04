@@ -24,4 +24,4 @@ jobs:                               #Definición del job
         run: javac HelloWorldApp.java
 
       - name: Run Java              #Step personalizado para corren el compilado de java
-        run: java HelloWorldApp.java
+        run: java HelloWorldApp
