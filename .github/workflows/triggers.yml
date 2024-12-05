@@ -4,6 +4,9 @@ run-name: triggers
 
 
 on:
+
+  schedule:
+    - cron: '1 * * * *'
   issues:
     types: [opened, edited, closed]
 
