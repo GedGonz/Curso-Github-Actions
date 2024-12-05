@@ -1,8 +1,14 @@
 name: triggers
 run-name: triggers
+
+permissions:
+  issues: write
+  pull-requests: write
+  contents: read
+
 on:
   issues:
-    types: [opened, edited, closed]
+    ypes: [opened, edited, closed]
   pull_request:
     branches:
       - main
