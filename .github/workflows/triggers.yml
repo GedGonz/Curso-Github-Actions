@@ -5,8 +5,8 @@ run-name: triggers
 
 on:
 
-  schedule:                       #Evento cron que se ejecuta cada cinco minutos
-    - cron: '*/5 * * * *'
+  #schedule:                       #Evento cron que se ejecuta cada cinco minutos
+  #  - cron: '*/5 * * * *'
   issues:                         #Evento issue se ejecuta cuando se abre un nuevo issue en github
     types:
       - opened
