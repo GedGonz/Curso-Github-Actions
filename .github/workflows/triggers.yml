@@ -1,8 +1,7 @@
 name: triggers
 run-name: triggers
 
-permissions:
-  contents: write
+
 
 on:
   issues:
@@ -24,7 +23,10 @@ on:
       - bajo
       - medio
       - alto
-    
+
+permissions:
+  contents: write
+
 jobs:
   triggers:
     runs-on: ubuntu-latest
