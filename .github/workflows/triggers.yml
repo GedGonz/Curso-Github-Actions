@@ -1,6 +1,9 @@
 name: triggers
 run-name: triggers
 
+permissions:
+  contents: write
+
 on:
   issues:
     types: [opened, edited, closed]
