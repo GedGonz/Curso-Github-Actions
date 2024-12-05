@@ -5,41 +5,38 @@ run-name: triggers
 
 on:
 
-  schedule:
+  schedule:                       #Evento cron que se ejecuta cada cinco minutos
     - cron: '*/5 * * * *'
-  issues:
+  issues:                         #Evento issue se ejecuta cuando se abre un nuevo issue en github
     types:
       - opened
-
-  pull_request:
+  pull_request:                   #Evento pull request se ejecuta cuando se abre un nuevo PR en github en la raa main
     branches:
       - main
     types: [opened]
 
-  workflow_dispatch:
+  workflow_dispatch:              #Evento worklow_dispatch se ejecuta manualmente y se muestra un selector
     inputs:
-      alerta:
-        description: 'nivel'
+      lenguaje:
+        description: 'lenguaje'
         required: true
-        default: alto
+        default: java
         type: choice
         options:
-        - bajo
-        - medio
-        - alto
+        - python
+        - c#
+        - ruby
+        - java
 
-permissions:
-  issues: write
-  pull-requests: write
-  contents: write
-
-jobs:
+jobs:                             #Job que ejecuta los eventos
   triggers:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Definir variable
-        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV   # sintaxis para obtener el actor del github y asingarlo a una variable y esta a las variables de entorno de github
+      - name: Definir lenguaje
+        run: echo "LANGUAGE=${{ inputs.lenguaje }}" >> $GITHUB_ENV # sintaxis para tomarlo del selector de lenguajes y asingarlo a una variable y esta a las variables de entorno de github
       - name: Correr java con variable
         run: java HelloWorldApp2.java
