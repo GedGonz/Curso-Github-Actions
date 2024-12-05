@@ -1,0 +1,45 @@
+name: triggers
+run-name: triggers
+
+
+
+on:
+
+  schedule:
+    - cron: '*/5 * * * *'
+  issues:
+    types:
+      - opened
+
+  pull_request:
+    branches:
+      - main
+    types: [opened]
+
+  workflow_dispatch:
+    inputs:
+      alerta:
+        description: 'nivel'
+        required: true
+        default: alto
+        type: choice
+        options:
+        - bajo
+        - medio
+        - alto
+
+permissions:
+  issues: write
+  pull-requests: write
+  contents: write
+
+jobs:
+  triggers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Definir variable
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+      - name: Correr java con variable
+        run: java HolaMundo.java
