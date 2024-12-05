@@ -17,7 +17,7 @@ on:
 
 jobs:                             #Job que ejecuta los eventos
   triggers-java:
-    if: ${{ inputs.lenguaje == 'java'}}
+    if: ${{ inputs.lenguaje == 'java'}}                           #Expresion para comparar el valor de entrada
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
