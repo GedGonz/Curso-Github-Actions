@@ -18,15 +18,15 @@ on:
 
   workflow_dispatch:
     inputs:
-    alerta:
-      description: 'nivel'
-      required: true
-      default: alto
-      type: choice
-      options:
-      - bajo
-      - medio
-      - alto
+      alerta:
+        description: 'nivel'
+        required: true
+        default: alto
+        type: choice
+        options:
+        - bajo
+        - medio
+        - alto
 
 permissions:
   issues: write
