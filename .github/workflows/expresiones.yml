@@ -1,0 +1,37 @@
+name: expresiones
+run-name: expresiones
+
+on:
+  workflow_dispatch:              #Evento worklow_dispatch se ejecuta manualmente y se muestra un selector
+    inputs:
+      lenguaje:
+        description: 'lenguaje'
+        required: true
+        default: java
+        type: choice
+        options:
+        - python
+        - c#
+        - ruby
+        - java
+
+jobs:                             #Job que ejecuta los eventos
+  triggers-java:
+    if: ${{ inputs.lenguje == 'java'}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Definir variable
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV   # sintaxis para obtener el actor del github y asingarlo a una variable y esta a las variables de entorno de github
+      - name: Definir lenguaje
+        run: echo "LANGUAGE=${{ inputs.lenguaje }}" >> $GITHUB_ENV # sintaxis para tomarlo del selector de lenguajes y asingarlo a una variable y esta a las variables de entorno de github
+      - name: Correr java con variable
+        run: java HelloWorldApp2.java
+
+  triggers-otro:
+    if: ${{ inputs.lenguje != 'java'}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Correr java con variable
+        run: echo  te gusta ${{ inputs.lenguje}} , mmm ok
