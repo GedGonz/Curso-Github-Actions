@@ -1,0 +1,11 @@
+name: contexto
+run-name: contexto
+
+on: push
+
+jobs:
+  check-main: 
+    if: ${{github.ref == 'refs/heads/main'}}    #Uso de contexto github
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Desplegado en la rama $GITHUB_REF"
