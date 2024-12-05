@@ -1,0 +1,20 @@
+name: triggers
+run-name: triggers
+on:
+  issues:
+    types: [opened, edited, milestoned]
+
+on:
+  pull_request:
+    branches:[ "main" ]
+
+jobs:
+  triggers:
+    runs-on: ubuntu-lates
+    steps:
+      - name: Checkout
+        use: action/checkout@v4
+      - name: Definir variable
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+      - name: Correr java con variable
+        run: java HelloWorldApp2.java
