@@ -17,7 +17,7 @@ on:
 
 jobs:                             #Job que ejecuta los eventos
   triggers-java:
-    if: ${{ inputs.lenguje == 'java'}}
+    if: ${{ inputs.lenguaje == 'java'}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,8 +30,8 @@ jobs:                             #Job que ejecuta los eventos
         run: java HelloWorldApp2.java
 
   triggers-otro:
-    if: ${{ inputs.lenguje != 'java'}}
+    if: ${{ inputs.lenguaje != 'java'}}
     runs-on: ubuntu-latest
     steps:
       - name: Correr java con variable
-        run: echo  te gusta ${{ inputs.lenguje}} , mmm ok
+        run: echo  te gusta ${{ inputs.lenguaje}} , mmm ok
