@@ -3,7 +3,7 @@ run-name: variables
 
 on: push
 env:                #Declaracion de variables
-  DIA_SEAMAN: Lunes
+  DIA_SEMANA: Lunes
 jobs:
   triggers:
     runs-on: ubuntu-latest
