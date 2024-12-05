@@ -10,7 +10,22 @@ on:
   issues:
     types: [opened, edited, closed]
 
+  pull_request:
+    branches:
+      - main
+    types: [opened]
 
+  workflow_dispatch:
+    inputs:
+    alert:
+      description: 'nivel'
+      requeried: true
+      default: alto
+      type: choice
+      options:
+      - bajo
+      - medio
+    
 jobs:
   triggers:
     runs-on: ubuntu-latest
