@@ -34,4 +34,4 @@ jobs:                             #Job que ejecuta los eventos
     runs-on: ubuntu-latest
     steps:
       - name: Correr java con variable
-        run: echo  te gusta ${{ inputs.lenguje}} , mmm ok
+        run: echo  te gusta ${{ inputs.lenguaje}} , mmm ok
