@@ -9,10 +9,6 @@ permissions:
 on:
   issues:
     ypes: [opened, edited, closed]
-  pull_request:
-    branches:
-      - main
-    types: [opened]
 
 jobs:
   triggers:
