@@ -11,4 +11,4 @@ jobs:
       VARIABLE_TRIGGER: trigger   #Se puede declara variables tanto global, en el job y steps
     steps:
       - name: Usando la variable
-        run: echo "estoy usando la variable del dia $DIA_SEMANA y una variable $VARIABLE_TRIGGER"
+        run: echo "estoy usando la variable del dia $DIA_SEMANA, una variable $VARIABLE_TRIGGER y una variable configurada en github ${{var.NOMBRE}}"
