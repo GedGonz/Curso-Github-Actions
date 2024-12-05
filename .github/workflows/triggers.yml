@@ -3,8 +3,6 @@ run-name: triggers
 on:
   issues:
     types: [opened, edited, milestoned]
-
-on:
   pull_request:
     branches:[ "main" ]
 
