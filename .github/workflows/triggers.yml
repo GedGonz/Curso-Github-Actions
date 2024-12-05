@@ -2,7 +2,8 @@ name: triggers
 run-name: triggers
 on:
   issues:
-    types: [opened, edited, milestoned]
+    types: [opened, edited, closed]
+
   pull_request:
     branches:
       - main
