@@ -17,9 +17,9 @@ on:
 
   workflow_dispatch:
     inputs:
-    alert:
+    alerta:
       description: 'nivel'
-      requeried: true
+      required: true
       default: alto
       type: choice
       options:
