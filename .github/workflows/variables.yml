@@ -1,0 +1,14 @@
+name: variables
+run-name: variables
+
+on: push
+env:                #Declaracion de variables
+  DIA_SEAMAN: Lunes
+jobs:
+  triggers:
+    runs-on: ubuntu-latest
+    env:
+      VARIABLE_TRIGGER: trigger   #Se puede declara variables tanto global, en el job y steps
+    steps:
+      - name: Usando la variable
+        run: echo "estoy usando la variable del dia $DIA_SEMANA y una variable $VARIABLE_TRIGGER"
