@@ -7,5 +7,4 @@ public class  HelloWorldApp2{
         System.out.println("Hola "+user+" desde github");
         System.out.println("Mi lenguaje favorito es: "+lenguaje);
     }
-    }
 }
